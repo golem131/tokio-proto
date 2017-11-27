@@ -8,7 +8,7 @@ extern crate bytes;
 use std::io;
 
 use bytes::BytesMut;
-use futures::BoxFuture;
+use futures::Future;
 use tokio_io::{AsyncRead, AsyncWrite};
 use tokio_io::codec::{Encoder, Decoder, Framed};
 use tokio_proto::TcpServer;
@@ -98,7 +98,7 @@ impl Service for TestService {
     type Request = Message<u32, Body<(), io::Error>>;
     type Response = Message<u32, Body<u32, io::Error>>;
     type Error = io::Error;
-    type Future = BoxFuture<Self::Response, io::Error>;
+    type Future = Box<Future<Item = Self::Response, Error = io::Error>>;
 
     fn call(&self, _: Self::Request) -> Self::Future {
         unimplemented!();

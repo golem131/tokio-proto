@@ -22,11 +22,11 @@ exclude       = [
 ]
 
 [dependencies]
-futures = "0.1.14"
-log = "0.3.6"
+futures = "0.1.17"
+log = "0.3.9"
 net2 = "0.2"
-smallvec = "0.4.0"
-tokio-core = "0.1.8"
+smallvec = "0.6"
+tokio-core = "0.1.12"
 tokio-service = "0.1"
 tokio-io = "0.1"
 
